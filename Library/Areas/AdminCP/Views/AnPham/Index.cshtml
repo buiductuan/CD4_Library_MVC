@@ -1,0 +1,65 @@
+﻿@model PagedList.IPagedList<Library.Tables.vwLib_Nhap_An_Pham>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminCP/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Nhập mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Ngày
+        </th>
+        
+        <th>
+            Tên kho
+        </th>
+        <th>
+            Nguồn vốn
+        </th>
+        <th>
+            Ngôn ngữ
+        </th>
+        
+        
+        <th>
+            Tên loại
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngay)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_kho)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_nguon_von)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_ngon_ngu)
+        </td>
+        
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.ten_loai)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Chi tiết", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Xóa", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

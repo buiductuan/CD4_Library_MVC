@@ -1,0 +1,58 @@
+﻿@model PagedList.IPagedList<Library.Tables.library_dm_chung>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminCP/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách loại ấn phẩm</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Ký hiệu
+        </th>
+        <th>
+            Tên loại ấn phẩm
+        </th>
+        <th>
+            Ghi chú
+        </th>
+        <th>
+            Đang sử dụng
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ky_hieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ghi_chu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.active)
+            </td>
+
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ma }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.ma }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ma })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

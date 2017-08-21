@@ -1,0 +1,161 @@
+﻿@model Library.Tables.library_the_doc
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/AdminCP/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>library_the_doc</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.serial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.barcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.barcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ho_dem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ho_dem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gioi_tinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gioi_tinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_sinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_sinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghi_chu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghi_chu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghi_chu0)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghi_chu0)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghi_chu1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghi_chu1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghi_chu2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghi_chu2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ghi_chu3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ghi_chu3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_loai_the)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_loai_the)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ma_trang_thai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ma_trang_thai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hansd_tu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hansd_tu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hansd_toi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hansd_toi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edit_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edit_date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

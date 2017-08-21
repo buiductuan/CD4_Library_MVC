@@ -1,0 +1,93 @@
+﻿@model PagedList.IPagedList<Library.Tables.library_the_doc>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/AdminCP/Views/Shared/_Layout.cshtml";
+}
+<form name="frm" id="frm" method="post">
+    <div>
+        <h3>Chọn loại thẻ</h3>
+        <select id="sl" name="sl" onchange="onsmit();">
+            <option>Lua chọn...</option>
+            <option value="gv">Giáo viên</option>
+            <option value="sv">Sinh vien</option>
+        </select>
+
+    </div>
+
+    <script language="javascript">
+        function onsmit() {
+            frm.submit();
+        }
+
+    </script>
+    <h2>Danh sách thẻ thư viện</h2>
+
+    <p>
+        @Html.ActionLink("Thêm mới", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                Số thẻ
+            </th>
+            <th>
+                Họ đệm
+            </th>
+            <th>
+                Tên
+            </th>
+
+            <th>
+                Ngày sinh
+            </th>
+
+            <th>
+                Que quán
+            </th>
+
+            <th>
+                Hạn sử dụng tới
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.serial)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ho_dem)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ten)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngay_sinh)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ghi_chu1)
+                </td>
+
+                <td>
+                    @(item.hansd_toi.HasValue ? item.hansd_toi.Value.ToString("dd/MM/yyyy") : "")
+                </td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = item.ma }) |
+                    @Html.ActionLink("Chi tiết", "Details", new { id = item.ma }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.ma }) |
+                    @Html.ActionLink("Gia hạn", "Change", new { id = item.ma })
+                </td>
+            </tr>
+        }
+
+    </table>
+</form>
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
